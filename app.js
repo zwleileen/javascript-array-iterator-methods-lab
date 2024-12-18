@@ -104,7 +104,6 @@ born in the 1500's.
 let veryOldInventors = inventors.filter((inventor) => {
   return inventor.year >= 1500 && inventor.year < 1600; //notes: remember to write return for curly braces
 });
-// Check your work:
 console.log("Exercise 1 my result: ", veryOldInventors);
 
 /*
@@ -128,7 +127,6 @@ const inventorNames = inventors.map((inventor) => {
     last: inventor.last,
   };
 });
-// Check your work:
 console.log("Exercise 2 my result: ", inventorNames);
 
 /*
@@ -141,8 +139,6 @@ the past to those born most recently).
 let sortedByBirthYear = inventors.sort((a, b) => {
   return a.year - b.year;
 }); //notes: sort() is a comparison function, if a.year-b.year is negative, then a comes first, and reverse is true, if equal then no change
-
-// Check your work:
 console.log("Exercise 3 my result: ", sortedByBirthYear);
 
 /* 
@@ -161,8 +157,6 @@ from an array of inventor objects
 const inventorNamedAda = inventors.find((inventor) => {
   return inventor.first === "Ada"; //notes: remember to use === instead of =, in order to do perfect match
 });
-
-// Check your work:
 console.log("Exercise 4 my result: ", inventorNamedAda);
 
 /*
@@ -200,6 +194,50 @@ const isAdultPresent = devs.some((dev) => {
   const age = currentYear - dev.year;
   return age >= 18;
 });
-
-// Check your work:
 console.log("Exercise 6 my result: ", isAdultPresent);
+
+/*
+Exercise 7: Array.prototype.every()
+
+Use Array.prototype.every() to determine if every person in the devs array is 
+19 years old or older.
+
+- You have an array of individuals, each with their year of birth represented
+  by the 'year' property.
+- Use the Array.prototype.every() method to verify if every individual in the
+  array is at least 19 years old.
+- Store the result (true or false) in the variable 'isEveryone19OrOlder'.
+*/
+
+const isEveryone19OrOlder = devs.every((dev) => {
+  const age2 = currentYear - dev.year;
+  return age2 >= 19;
+});
+console.log("Exercise 7 my result: ", isEveryone19OrOlder);
+
+/*
+Exercise 8: Array.prototype.find()
+
+Use Array.prototype.find() to identify and retrieve the comment object with 
+a specific ID 823423 from an array of comment objects.
+
+- Assign the found comment object to the variable 'commentById'.
+*/
+const commentById = comments.find((comment) => {
+  return comment.id === 823423;
+});
+console.log("Exercise 8 my result: ", commentById);
+
+/*
+Exercise 9: Array.prototype.findIndex()
+
+Determine the index of the comment that has a specific ID 123523 in an array 
+of comment objects.
+
+- Store the index in the variable 'idx'.
+*/
+
+const idx = comments.findIndex((comment) => {
+  return comment.id === 123523;
+});
+console.log("Exercise 9 my result: ", idx);
