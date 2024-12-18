@@ -164,3 +164,42 @@ const inventorNamedAda = inventors.find((inventor) => {
 
 // Check your work:
 console.log("Exercise 4 my result: ", inventorNamedAda);
+
+/*
+Exercise 5: Array.prototype.map()
+
+Use the Array.prototype.map() method to reformat each name in the 'people' 
+array. The goal is to convert names from "Last, First" format to "First Last" 
+format.
+
+Hint: Use the String.prototype.split() method to separate the first and last 
+      names. You can split the string using ', ' as the separator.
+      After splitting the names, rearrange them to the "First Last" format.
+*/
+const firstLast = people.map((person) => {
+  const [last, first] = person.split(",").map((splitName) => {
+    return splitName.trim(); //notes: trim here removes any whitespace in the new transformed splitName
+  });
+  return `${first} ${last}`; //notes: need to concatenate the results to to have the space between
+});
+console.log("Exercise 5 my result: ", firstLast);
+
+/*
+Exercise 6: Array.prototype.some()
+
+Determine if there is at least one person in the devs array who is 18 years 
+old or older.
+
+- You have an array of people with their respective ages.
+- Use the Array.prototype.some() method to check if any person in the array is 
+  18 years old or older.
+- Store the result (true or false) in the variable 'isAdultPresent'. 
+*/
+const currentYear = new Date().getFullYear(); //notes: new Date() creates a new date object
+const isAdultPresent = devs.some((dev) => {
+  const age = currentYear - dev.year;
+  return age >= 18;
+});
+
+// Check your work:
+console.log("Exercise 6 my result: ", isAdultPresent);
