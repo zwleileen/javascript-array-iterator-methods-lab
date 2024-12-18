@@ -87,3 +87,80 @@ const comments = [
   { text: "Ramen is my fav food ever", id: 123523 },
   { text: "Nice Nice Nice!", id: 542328 },
 ];
+
+/*
+Exercise 1: Array.prototype.filter()
+
+Filter the array of inventors into a new array containing only the inventors 
+born in the 1500's.
+
+- You have an array of inventors, each with a birth year listed by the property 
+  'year'.
+- Use the Array.prototype.filter() method to create a new array.
+- The new array, 'veryOldInventors', should only include inventors born between 
+  the years 1500 and 1599.
+*/
+
+let veryOldInventors = inventors.filter((inventor) => {
+  return inventor.year >= 1500 && inventor.year < 1600; //notes: remember to write return for curly braces
+});
+// Check your work:
+console.log("Exercise 1 my result: ", veryOldInventors);
+
+/*
+Exercise 2: Array.prototype.map()
+
+Map the array of inventors into a new array. This new array should only contain
+objects with the inventors' first and last names.
+
+- For each inventor, return an object in this format: 
+  { first: "First Name", last: "Last Name" }.
+- The new array should be a collection of these objects, each representing an 
+  inventor with only their first and last names.
+
+Hint: Return a new object literal from the callback that looks like:
+      { first: "First Name", last: "Last Name" }
+*/
+
+const inventorNames = inventors.map((inventor) => {
+  return {
+    first: inventor.first,
+    last: inventor.last,
+  };
+});
+// Check your work:
+console.log("Exercise 2 my result: ", inventorNames);
+
+/*
+Exercise 3: Array.prototype.sort()
+
+Sort the inventors by birth date in ascending order (from those born furthest in
+the past to those born most recently).
+*/
+
+let sortedByBirthYear = inventors.sort((a, b) => {
+  return a.year - b.year;
+}); //notes: sort() is a comparison function, if a.year-b.year is negative, then a comes first, and reverse is true, if equal then no change
+
+// Check your work:
+console.log("Exercise 3 my result: ", sortedByBirthYear);
+
+/* 
+Exercise 4: Array.prototype.find()
+
+Use Array.prototype.find() to identify the inventor with the first name 'Ada' 
+from an array of inventor objects
+
+- You have an array of objects, each representing an inventor with various 
+  properties including their first name.
+- Utilize the Array.prototype.find() method to locate the object for the 
+  inventor with the first name 'Ada'.
+- Assign the found inventor object to the variable inventorNamedAda
+*/
+
+const inventorNamedAda = inventors.find((inventor) => {
+  return inventor.first === "Ada"; //notes: remember to use === instead of =, in order to do perfect match
+});
+
+// Check your work:
+console.log("Exercise 4 my result: ", inventorNamedAda);
